@@ -1,0 +1,12 @@
+{
+  "name": "hackverge-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Hackverge public marketing website — static site, zero build dependencies.",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "serve": "npm run build && node build/serve.mjs",
+    "check-links": "node checklinks.mjs"
+  }
+}
