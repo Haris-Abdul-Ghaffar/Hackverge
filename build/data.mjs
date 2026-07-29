@@ -8,7 +8,10 @@ export const site = {
   tagline: "Become the Cybersecurity Professional Companies Want to Hire.",
   description:
     "Hackverge is a career accelerator that transforms motivated learners into enterprise-ready cybersecurity professionals through practical training, enterprise technologies, mentorship, and career development.",
-  url: "https://hackverge.example.com",
+  // Overridden automatically by the GitHub Actions workflow (SITE_URL env var),
+  // which derives the real https://... address from your repo name / custom domain.
+  // Only used as-is for local builds or if you deploy manually — see README.
+  url: process.env.SITE_URL || "https://hackverge.example.com",
   email: "hello@hackverge.io",
   supportEmail: "support@hackverge.io",
   phone: "+92 300 0000000",

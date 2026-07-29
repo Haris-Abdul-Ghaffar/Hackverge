@@ -73,24 +73,25 @@ any edit (there's no hot-reload).
 3. Push to `main` (or run the workflow manually from the **Actions** tab).
 
 That's it — `.github/workflows/deploy.yml` builds the site and deploys it
-automatically on every push. It also **auto-detects the right base path**:
-- Repo named `yourname.github.io` → served at the root, no prefix.
+automatically on every push. It also **auto-detects the right base path and
+canonical site URL** — you don't need to edit `site.url` by hand for this path:
+- Repo named `yourname.github.io` → served at the root, no prefix, canonical
+  URLs use `https://yourname.github.io`.
 - Any other repo name (e.g. `hackverge`) → served at
-  `yourname.github.io/hackverge/`, and the workflow automatically prefixes
-  every internal link so nothing breaks.
-- If you add a custom domain (see below), it automatically switches back to
-  root paths.
+  `yourname.github.io/hackverge/`, and the workflow prefixes every internal
+  link and sets canonical URLs to match — automatically.
+- If you add a custom domain (see below), it switches to that domain
+  everywhere instead.
 
 ### Option B — Custom domain
 
-1. Add a `CNAME` file (no extension) to `build/` containing just your domain,
-   e.g. `www.hackverge.io` — copy it into `dist/` on build, or simplest: add
-   it directly as `dist/CNAME` and also commit a copy at the repo root so the
-   workflow's auto-detection sees it (`CNAME` at repo root **or** `dist/CNAME`
-   both work).
+1. Add a file named exactly `CNAME` (no extension) at the **repo root**
+   containing just your domain, e.g. `www.hackverge.io`.
 2. Point your domain's DNS at GitHub Pages (see GitHub's own docs — search
    "GitHub Pages custom domain" — for current A/CNAME record values).
-3. Update `site.url` in `build/data.mjs` to your real domain, then rebuild.
+3. Push. The workflow detects the `CNAME` file, copies it into the build
+   output, and automatically sets canonical URLs/sitemap/OG tags to your real
+   domain — no manual edits needed.
 
 ### Option C — Manual (no Actions)
 
@@ -107,8 +108,10 @@ page — see the comment block near the bottom of `build/build.mjs`.
 
 A few things are intentionally marked as placeholders and should be replaced:
 
-- **`site.url`, `site.email`, `site.phone`, `site.social.*`** in
-  `build/data.mjs` — currently placeholder values.
+- **`site.email`, `site.phone`, `site.social.*`** in `build/data.mjs` —
+  currently placeholder values. (`site.url` is handled automatically by the
+  GitHub Actions workflow — see above — so you only need to touch it if
+  you're using the manual deploy option below.)
 - **Instructor profiles** (`instructors` in `data.mjs`) — generic placeholder
   bios/names. Replace with your real team, photos, and bios.
 - **Testimonials** (`testimonials` in `data.mjs`) — explicitly labeled as
