@@ -154,7 +154,7 @@ export function navbar(path) {
 </div>`;
 }
 
-export function logoMark(size = 30) {
+export function logoMark(size = 36) {
   return `<img class="brand-mark" src="/assets/logo/icon-64.png" width="${size}" height="${size}" alt="" aria-hidden="true">`;
 }
 
