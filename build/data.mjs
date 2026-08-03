@@ -12,8 +12,8 @@ export const site = {
   // which derives the real https://... address from your repo name / custom domain.
   // Only used as-is for local builds or if you deploy manually — see README.
   url: process.env.SITE_URL || "https://hackverge.example.com",
-  email: "hello@hackverge.io",
-  supportEmail: "support@hackverge.io",
+  email: "hackverge@gmail.com",
+  supportEmail: "support@hackverge.com",
   phone: "+92 300 0000000",
   social: {
     linkedin: "https://linkedin.com/company/hackverge",
@@ -24,6 +24,7 @@ export const site = {
 };
 
 export const nav = [
+    { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   {
     label: "Learning Paths",
