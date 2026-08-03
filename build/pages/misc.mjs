@@ -7,12 +7,9 @@ export function loginBody() {
 <section class="login-shell">
   <div class="login-card">
     <div style="text-align:center;margin-bottom:24px">
-      <div style="display:inline-flex">${logoMark(48)}</div>
+      <div style="display:inline-flex">${"$"}{logoMark(48)}</div>
       <h1 style="font-size:1.5rem;margin-top:14px">Welcome back</h1>
       <p style="margin:0">Log in to your Hackverge student dashboard.</p>
-    </div>
-    <div class="disclosure-note" style="margin-bottom:20px">
-      The Student Dashboard requires a backend and database that aren't part of this static site yet. This form is a visual preview only — see the note at the bottom of this page for what's next.
     </div>
     <form data-form>
       <div class="field"><label for="lEmail">Email</label><input id="lEmail" name="email" type="email" required></div>
@@ -20,9 +17,9 @@ export function loginBody() {
       <button type="submit" class="btn btn--primary btn--block">Log In</button>
     </form>
     <div class="form-success" data-form-success>
-      ${icon("checkCircle", 36)}
-      <h3 style="font-size:1.1rem">This is a preview</h3>
-      <p style="font-size:0.9rem">Student accounts will work once a backend is connected.</p>
+      ${"$"}{icon("checkCircle", 36)}
+      <h3 style="font-size:1.1rem">Student accounts aren't open yet</h3>
+      <p style="font-size:0.9rem">The dashboard is on its way. In the meantime, apply below and we'll notify you the moment accounts launch.</p>
     </div>
     <p style="text-align:center;font-size:0.85rem;margin-top:20px">Don't have an account? <a href="/apply/" style="color:var(--purple-400);font-weight:600">Apply now</a></p>
   </div>
