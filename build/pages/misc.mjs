@@ -7,7 +7,7 @@ export function loginBody() {
 <section class="login-shell">
   <div class="login-card">
     <div style="text-align:center;margin-bottom:24px">
-      <div style="display:inline-flex">${"$"}{logoMark(48)}</div>
+      <div style="display:inline-flex"></div>
       <h1 style="font-size:1.5rem;margin-top:14px">Welcome back</h1>
       <p style="margin:0">Log in to your Hackverge student dashboard.</p>
     </div>
