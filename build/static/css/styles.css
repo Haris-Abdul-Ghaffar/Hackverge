@@ -229,6 +229,11 @@ main { display: block; }
 .nav__inner { max-width: 1280px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: var(--sp-3); }
 .nav__brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; margin-right: var(--sp-2); }
 .brand-mark { object-fit: contain; flex-shrink: 0; }
+.wordmark { display: inline-flex; align-items: center; }
+.wordmark__img { height: 100%; width: auto; display: block; }
+.wordmark--light { display: none; }
+[data-theme="light"] .wordmark--dark { display: none; }
+[data-theme="light"] .wordmark--light { display: block; }
 .nav__links { display: flex; align-items: center; gap: 4px; flex: 1; }
 .nav__link, .nav__item > .nav__link { display: inline-flex; align-items: center; gap: 4px; padding: 10px 12px; border-radius: var(--r-sm); font-weight: 500; font-size: 0.93rem; color: var(--text); }
 .nav__link:hover { background: var(--surface); }
@@ -500,6 +505,8 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 [data-theme="light"] .footer { background: #0B0E1F; }
 .footer__top { max-width: 1200px; margin: 0 auto; padding: var(--sp-8) var(--sp-3) var(--sp-6); display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.3fr; gap: var(--sp-4); }
 .footer .nav__brand { color: #fff; }
+.footer .wordmark--light { display: none !important; }
+.footer .wordmark--dark { display: block !important; }
 .footer__tagline { font-size: 0.88rem; color: var(--ink-400); margin: var(--sp-2) 0; }
 .footer__social { display: flex; gap: 10px; margin-top: var(--sp-2); }
 .footer__social a { width: 36px; height: 36px; border-radius: var(--r-sm); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: var(--ink-200); }
