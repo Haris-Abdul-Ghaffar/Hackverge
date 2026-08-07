@@ -154,13 +154,26 @@ export function navbar(path) {
 </div>`;
 }
 
+<<<<<<< Updated upstream
 export function logoMark(size = 52) {
+=======
+export function logoMark(size = 46) {
+>>>>>>> Stashed changes
   return `<img class="brand-mark" src="/assets/logo/icon-64.png" width="${size}" height="${size}" alt="" aria-hidden="true">`;
 }
 export function wordmark(height = 22) {
   return `<span class="wordmark" style="height:${height}px">
     <img class="wordmark__img wordmark--dark" src="/assets/logo/wordmark-white.png" height="${height}" alt="Hackverge">
     <img class="wordmark__img wordmark--light" src="/assets/logo/wordmark-black.png" height="${height}" alt="Hackverge">
+  </span>`;
+}
+
+export function wordmark(height = 22) {
+  // Two images, theme-swapped via CSS (see .wordmark--dark/--light rules) —
+  // same pattern as the sun/moon theme-toggle icon.
+  return `<span class="wordmark" style="height:${height}px">
+    <img class="wordmark__img wordmark--dark" src="/assets/logo/wordmark-white.png" height="${height}" alt="${site.name}">
+    <img class="wordmark__img wordmark--light" src="/assets/logo/wordmark-black.png" height="${height}" alt="${site.name}">
   </span>`;
 }
 
@@ -317,11 +330,13 @@ export function statHud(stats) {
 }
 
 export function networkGraphic({ id = "netgfx", compact = false } = {}) {
-  // Signature abstract "threat graph" illustration — nodes + edges + radar sweep.
+  // Signature abstract "threat graph" illustration — nodes + animated data-flow edges + radar sweep.
   const h = compact ? 380 : 520;
+  const cy = h * 0.46; // keep comfortably below the top edge at all sizes
+  const glowR = Math.min(190, cy - 20);
   return `<svg class="network-gfx" viewBox="0 0 560 ${h}" width="100%" height="100%" role="img" aria-label="Abstract network visualization" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="${id}-glow" cx="50%" cy="42%" r="60%">
+    <radialGradient id="${id}-glow" cx="50%" cy="46%" r="60%">
       <stop offset="0%" stop-color="#6C4CF5" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#6C4CF5" stop-opacity="0"/>
     </radialGradient>
@@ -330,29 +345,29 @@ export function networkGraphic({ id = "netgfx", compact = false } = {}) {
       <stop offset="100%" stop-color="#29E0FF"/>
     </linearGradient>
   </defs>
-  <circle cx="280" cy="${h * 0.4}" r="220" fill="url(#${id}-glow)"/>
-  <g class="netgfx-sweep" style="transform-origin: 280px ${h * 0.4}px;">
-    <path d="M280 ${h * 0.4} L280 ${h * 0.4 - 190} A190 190 0 0 1 430 ${h * 0.4 - 95} Z" fill="url(#${id}-edge)" opacity="0.08"/>
+  <circle cx="280" cy="${cy}" r="${glowR}" fill="url(#${id}-glow)"/>
+  <g class="netgfx-sweep" style="transform-origin: 280px ${cy}px;">
+    <path d="M280 ${cy} L280 ${cy - 165} A165 165 0 0 1 410 ${cy - 82} Z" fill="url(#${id}-edge)" opacity="0.1"/>
   </g>
-  <circle cx="280" cy="${h * 0.4}" r="190" fill="none" stroke="#8B6CFF" stroke-opacity="0.18"/>
-  <circle cx="280" cy="${h * 0.4}" r="130" fill="none" stroke="#8B6CFF" stroke-opacity="0.14"/>
-  <circle cx="280" cy="${h * 0.4}" r="70" fill="none" stroke="#8B6CFF" stroke-opacity="0.14"/>
-  <g stroke="url(#${id}-edge)" stroke-width="1.2" opacity="0.55">
-    <line x1="280" y1="${h * 0.4}" x2="120" y2="${h * 0.4 - 120}"/>
-    <line x1="280" y1="${h * 0.4}" x2="420" y2="${h * 0.4 - 140}"/>
-    <line x1="280" y1="${h * 0.4}" x2="90" y2="${h * 0.4 + 90}"/>
-    <line x1="280" y1="${h * 0.4}" x2="440" y2="${h * 0.4 + 110}"/>
-    <line x1="280" y1="${h * 0.4}" x2="280" y2="${h * 0.4 - 190}"/>
-    <line x1="120" y1="${h * 0.4 - 120}" x2="90" y2="${h * 0.4 + 90}"/>
-    <line x1="420" y1="${h * 0.4 - 140}" x2="440" y2="${h * 0.4 + 110}"/>
+  <circle cx="280" cy="${cy}" r="165" fill="none" stroke="#8B6CFF" stroke-opacity="0.18"/>
+  <circle cx="280" cy="${cy}" r="112" fill="none" stroke="#8B6CFF" stroke-opacity="0.14"/>
+  <circle cx="280" cy="${cy}" r="60" fill="none" stroke="#8B6CFF" stroke-opacity="0.14"/>
+  <g class="netgfx-edges" stroke="url(#${id}-edge)" stroke-width="1.2" opacity="0.6" fill="none">
+    <path d="M280 ${cy} L120 ${cy - 104}"/>
+    <path d="M280 ${cy} L420 ${cy - 122}"/>
+    <path d="M280 ${cy} L90 ${cy + 78}"/>
+    <path d="M280 ${cy} L440 ${cy + 96}"/>
+    <path d="M280 ${cy} L280 ${cy - 165}"/>
+    <path d="M120 ${cy - 104} L90 ${cy + 78}"/>
+    <path d="M420 ${cy - 122} L440 ${cy + 96}"/>
   </g>
   <g fill="#EDEFF7">
-    <circle cx="280" cy="${h * 0.4}" r="7" fill="#8B6CFF"/>
-    <circle cx="120" cy="${h * 0.4 - 120}" r="4.5" fill="#29E0FF"/>
-    <circle cx="420" cy="${h * 0.4 - 140}" r="4.5" fill="#29E0FF"/>
-    <circle cx="90" cy="${h * 0.4 + 90}" r="4.5" fill="#29E0FF"/>
-    <circle cx="440" cy="${h * 0.4 + 110}" r="4.5" fill="#29E0FF"/>
-    <circle cx="280" cy="${h * 0.4 - 190}" r="4.5" fill="#29E0FF"/>
+    <circle class="netgfx-node netgfx-node--hub" cx="280" cy="${cy}" r="7" fill="#8B6CFF"/>
+    <circle class="netgfx-node" cx="120" cy="${cy - 104}" r="4.5" fill="#29E0FF" style="animation-delay:-.4s"/>
+    <circle class="netgfx-node" cx="420" cy="${cy - 122}" r="4.5" fill="#29E0FF" style="animation-delay:-1.6s"/>
+    <circle class="netgfx-node" cx="90" cy="${cy + 78}" r="4.5" fill="#29E0FF" style="animation-delay:-2.6s"/>
+    <circle class="netgfx-node" cx="440" cy="${cy + 96}" r="4.5" fill="#29E0FF" style="animation-delay:-.9s"/>
+    <circle class="netgfx-node" cx="280" cy="${cy - 165}" r="4.5" fill="#29E0FF" style="animation-delay:-2s"/>
   </g>
 </svg>`;
 }
