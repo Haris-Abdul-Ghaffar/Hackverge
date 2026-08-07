@@ -118,7 +118,7 @@ export function navbar(path) {
   <div class="nav__inner">
     <a href="/" class="nav__brand" aria-label="${site.name} home">
       ${logoMark()}
-      <span>${site.name}</span>
+      ${wordmark()}
     </a>
     <nav class="nav__links" aria-label="Primary">
       ${links}
@@ -157,6 +157,12 @@ export function navbar(path) {
 export function logoMark(size = 52) {
   return `<img class="brand-mark" src="/assets/logo/icon-64.png" width="${size}" height="${size}" alt="" aria-hidden="true">`;
 }
+export function wordmark(height = 22) {
+  return `<span class="wordmark" style="height:${height}px">
+    <img class="wordmark__img wordmark--dark" src="/assets/logo/wordmark-white.png" height="${height}" alt="Hackverge">
+    <img class="wordmark__img wordmark--light" src="/assets/logo/wordmark-black.png" height="${height}" alt="Hackverge">
+  </span>`;
+}
 
 // ------------------------------------------------------------
 // Footer
@@ -169,7 +175,7 @@ export function footer() {
   return `<footer class="footer">
   <div class="footer__top">
     <div class="footer__brand">
-      <a href="/" class="nav__brand">${logoMark()}<span>${site.name}</span></a>
+      <a href="/" class="nav__brand">${logoMark()}${wordmark()}</a>
       <p class="footer__tagline">A career accelerator that transforms motivated learners into enterprise-ready cybersecurity professionals.</p>
       <div class="footer__social">
         <a href="${site.social.linkedin}" aria-label="LinkedIn" target="_blank" rel="noopener">${icon("linkedin", 18)}</a>
