@@ -312,6 +312,14 @@ main { display: block; }
   .mobile-nav a { padding: 16px 6px; font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid var(--border); }
   .mobile-nav .btn { margin-top: var(--sp-3); }
 }
+@media (max-width: 480px) {
+  .nav__inner { gap: var(--sp-2); }
+  .nav__brand { gap: 6px; }
+  .brand-mark { width: 32px !important; height: 32px !important; }
+  .wordmark { height: 17px !important; }
+  #searchToggle, #themeToggle { display: none; }
+  .nav__actions { gap: 2px; }
+}
 
 /* ==========================================================================
    Hero
@@ -337,6 +345,22 @@ main { display: block; }
 .netgfx-node--hub { animation: netgfx-pulse-hub 2.6s ease-in-out infinite; }
 @keyframes netgfx-pulse { 0%, 100% { opacity: 0.55; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.25); } }
 @keyframes netgfx-pulse-hub { 0%, 100% { opacity: 0.85; transform: scale(1); } 50% { opacity: 1; transform: scale(1.15); } }
+/* Hero-only richer animation */
+.hero-gfx { position: absolute; inset: 0; }
+.hgfx-bezel { animation: hgfx-bezel-spin 50s linear infinite; }
+@keyframes hgfx-bezel-spin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.hgfx-sweep { animation: sweep 8s linear infinite; }
+.hgfx-scanline { animation: hgfx-scan 6s ease-in-out infinite; }
+@keyframes hgfx-scan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 46% { opacity: 1; } 54% { opacity: 0; } 100% { transform: translateY(580px); opacity: 0; } }
+.hgfx-edges path { stroke-dasharray: 5 9; animation: netgfx-flow 2.2s linear infinite; }
+.hgfx-edges--web path { stroke-dasharray: 3 7; animation: netgfx-flow 3.6s linear infinite; }
+.hgfx-node { transform-box: fill-box; transform-origin: center; animation: netgfx-pulse 2.6s ease-in-out infinite; }
+.hgfx-node--hub { animation: netgfx-pulse-hub 2.6s ease-in-out infinite; }
+.hgfx-pulse { transform-box: fill-box; transform-origin: center; opacity: 0; animation: hgfx-detect 12.9s ease-out infinite; }
+@keyframes hgfx-detect { 0% { transform: scale(0.3); opacity: 0.9; } 25% { transform: scale(3.4); opacity: 0; } 100% { transform: scale(3.4); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .hgfx-bezel, .hgfx-sweep, .hgfx-scanline, .hgfx-edges path, .hgfx-node, .hgfx-pulse { animation: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .netgfx-sweep, .netgfx-edges path, .netgfx-node { animation: none; }
 }
