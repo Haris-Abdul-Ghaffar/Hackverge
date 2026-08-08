@@ -234,18 +234,16 @@ main { display: block; }
 [data-theme="light"] .wordmark--dark { display: none; }
 [data-theme="light"] .wordmark--light { display: block; }
 .brand-mark { object-fit: contain; flex-shrink: 0; }
-<<<<<<< Updated upstream
+
 .wordmark { display: inline-flex; align-items: center; }
 .wordmark__img { height: 100%; width: auto; display: block; }
 .wordmark--light { display: none; }
 [data-theme="light"] .wordmark--dark { display: none; }
 [data-theme="light"] .wordmark--light { display: block; }
-.nav__links { display: flex; align-items: center; gap: 4px; flex: 1; }
-.nav__link, .nav__item > .nav__link { display: inline-flex; align-items: center; gap: 4px; padding: 10px 12px; border-radius: var(--r-sm); font-weight: 500; font-size: 0.93rem; color: var(--text); }
-=======
+
 .nav__links { display: flex; align-items: center; gap: 2px; flex: 1; flex-wrap: nowrap; min-width: 0; }
 .nav__link, .nav__item > .nav__link { display: inline-flex; align-items: center; gap: 4px; padding: 9px 10px; border-radius: var(--r-sm); font-weight: 500; font-size: 0.93rem; color: var(--text); white-space: nowrap; }
->>>>>>> Stashed changes
+
 .nav__link:hover { background: var(--surface); }
 .nav__item { position: relative; }
 .nav__actions { display: flex; align-items: center; gap: 6px; }
