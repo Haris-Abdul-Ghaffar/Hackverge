@@ -154,18 +154,8 @@ export function navbar(path) {
 </div>`;
 }
 
-<<<<<<< Updated upstream
-export function logoMark(size = 52) {
-=======
 export function logoMark(size = 46) {
->>>>>>> Stashed changes
   return `<img class="brand-mark" src="/assets/logo/icon-64.png" width="${size}" height="${size}" alt="" aria-hidden="true">`;
-}
-export function wordmark(height = 22) {
-  return `<span class="wordmark" style="height:${height}px">
-    <img class="wordmark__img wordmark--dark" src="/assets/logo/wordmark-white.png" height="${height}" alt="Hackverge">
-    <img class="wordmark__img wordmark--light" src="/assets/logo/wordmark-black.png" height="${height}" alt="Hackverge">
-  </span>`;
 }
 
 export function wordmark(height = 22) {
@@ -224,7 +214,6 @@ export function footer() {
 // Shared building blocks
 // ------------------------------------------------------------
 export function breadcrumbs(items) {
-  // items: [{label, href}] last item has no href
   const ld = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -330,9 +319,8 @@ export function statHud(stats) {
 }
 
 export function networkGraphic({ id = "netgfx", compact = false } = {}) {
-  // Signature abstract "threat graph" illustration — nodes + animated data-flow edges + radar sweep.
   const h = compact ? 380 : 520;
-  const cy = h * 0.46; // keep comfortably below the top edge at all sizes
+  const cy = h * 0.46;
   const glowR = Math.min(190, cy - 20);
   return `<svg class="network-gfx" viewBox="0 0 560 ${h}" width="100%" height="100%" role="img" aria-label="Abstract network visualization" xmlns="http://www.w3.org/2000/svg">
   <defs>
