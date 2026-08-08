@@ -359,3 +359,102 @@ export function networkGraphic({ id = "netgfx", compact = false } = {}) {
   </g>
 </svg>`;
 }
+
+// ------------------------------------------------------------
+// Dedicated homepage-hero animation — a richer "SOC threat monitor"
+// visual: hex-grid backdrop, rotating scan bezel, radar sweep with a
+// glowing leading edge, a denser node mesh with flowing data lines,
+// a vertical scan-line pass, and staggered "detection pulse" rings.
+// ------------------------------------------------------------
+export function heroGraphic(id = "herogfx") {
+  const cx = 285, cy = 275;
+  const nodes = [
+    { key: "hub", x: cx, y: cy, r: 8, hub: true },
+    { key: "n1", x: 145, y: 155, r: 5 },
+    { key: "n2", x: 300, y: 85, r: 4.5 },
+    { key: "n3", x: 445, y: 140, r: 5.5 },
+    { key: "n4", x: 485, y: 285, r: 4.5 },
+    { key: "n5", x: 420, y: 425, r: 5 },
+    { key: "n6", x: 260, y: 470, r: 4.5 },
+    { key: "n7", x: 115, y: 405, r: 5 },
+    { key: "n8", x: 75, y: 250, r: 4.5 },
+  ];
+  const spokes = nodes.slice(1).map((n) => `<path d="M${cx} ${cy} L${n.x} ${n.y}"/>`).join("");
+  const web = [
+    ["n1", "n3"], ["n3", "n5"], ["n5", "n7"], ["n7", "n1"],
+  ]
+    .map(([a, b]) => {
+      const pa = nodes.find((n) => n.key === a);
+      const pb = nodes.find((n) => n.key === b);
+      return `<path d="M${pa.x} ${pa.y} L${pb.x} ${pb.y}"/>`;
+    })
+    .join("");
+  const nodeCircles = nodes
+    .map(
+      (n, i) =>
+        `<circle class="hgfx-node${n.hub ? " hgfx-node--hub" : ""}" cx="${n.x}" cy="${n.y}" r="${n.r}" fill="${n.hub ? "#8B6CFF" : "#29E0FF"}" style="animation-delay:-${(i * 0.55).toFixed(2)}s"/>`
+    )
+    .join("");
+  const pulseNodes = ["n2", "n5", "n8"];
+  const pulses = pulseNodes
+    .map((key, i) => {
+      const n = nodes.find((x) => x.key === key);
+      return `<circle class="hgfx-pulse" cx="${n.x}" cy="${n.y}" r="6" style="animation-delay:${i * -4.3}s"/>`;
+    })
+    .join("");
+
+  return `<svg class="hero-gfx" viewBox="0 0 560 560" width="100%" height="100%" role="img" aria-label="Animated cybersecurity threat-monitoring visualization" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="${id}-glow" cx="51%" cy="49%" r="58%">
+      <stop offset="0%" stop-color="#6C4CF5" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#6C4CF5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="${id}-edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B6CFF"/>
+      <stop offset="100%" stop-color="#29E0FF"/>
+    </linearGradient>
+    <linearGradient id="${id}-scan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#29E0FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#29E0FF" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#29E0FF" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="${id}-hex" width="42" height="72.7" patternUnits="userSpaceOnUse" patternTransform="translate(280 275)">
+      <path d="M21 0 L42 12 L42 36 L21 48 L0 36 L0 12 Z" fill="none" stroke="#8B6CFF" stroke-opacity="0.07" stroke-width="1"/>
+      <path d="M21 48 L42 60 L42 84 L21 96 L0 84 L0 60 Z" fill="none" stroke="#8B6CFF" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <clipPath id="${id}-clip"><circle cx="${cx}" cy="${cy}" r="205"/></clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="560" fill="url(#${id}-hex)" clip-path="url(#${id}-clip)"/>
+  <circle cx="${cx}" cy="${cy}" r="205" fill="url(#${id}-glow)"/>
+
+  <g class="hgfx-bezel" style="transform-origin: ${cx}px ${cy}px;">
+    <circle cx="${cx}" cy="${cy}" r="205" fill="none" stroke="#8B6CFF" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+  </g>
+
+  <circle cx="${cx}" cy="${cy}" r="165" fill="none" stroke="#8B6CFF" stroke-opacity="0.16"/>
+  <circle cx="${cx}" cy="${cy}" r="112" fill="none" stroke="#8B6CFF" stroke-opacity="0.13"/>
+  <circle cx="${cx}" cy="${cy}" r="60" fill="none" stroke="#8B6CFF" stroke-opacity="0.13"/>
+
+  <g clip-path="url(#${id}-clip)">
+    <g class="hgfx-sweep" style="transform-origin: ${cx}px ${cy}px;">
+      <path d="M${cx} ${cy} L${cx} ${cy - 205} A205 205 0 0 1 ${cx + 133} ${cy - 156} Z" fill="url(#${id}-edge)" opacity="0.12"/>
+      <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 205}" stroke="#29E0FF" stroke-width="1.5" opacity="0.8"/>
+    </g>
+    <rect class="hgfx-scanline" x="0" y="-20" width="560" height="3" fill="url(#${id}-scan)"/>
+  </g>
+
+  <g class="hgfx-edges" stroke="url(#${id}-edge)" stroke-width="1.1" opacity="0.55" fill="none">
+    ${spokes}
+  </g>
+  <g class="hgfx-edges hgfx-edges--web" stroke="#29E0FF" stroke-width="0.9" opacity="0.28" fill="none">
+    ${web}
+  </g>
+
+  <g class="hgfx-pulses" fill="none" stroke="#29E0FF" stroke-width="1.5">
+    ${pulses}
+  </g>
+
+  <g>${nodeCircles}</g>
+</svg>`;
+}
