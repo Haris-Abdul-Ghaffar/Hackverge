@@ -367,6 +367,7 @@ export function networkGraphic({ id = "netgfx", compact = false } = {}) {
 // a vertical scan-line pass, and staggered "detection pulse" rings.
 // ------------------------------------------------------------
 export function heroGraphic(id = "herogfx") {
+    if (typeof id !== "string") id = "herogfx";
   const cx = 285, cy = 275;
   const nodes = [
     { key: "hub", x: cx, y: cy, r: 8, hub: true },
@@ -458,3 +459,4 @@ export function heroGraphic(id = "herogfx") {
   <g>${nodeCircles}</g>
 </svg>`;
 }
+
