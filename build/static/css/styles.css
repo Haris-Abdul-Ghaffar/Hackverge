@@ -339,8 +339,7 @@ main { display: block; }
 .network-gfx { position: absolute; inset: 0; }
 .netgfx-sweep { animation: sweep 7s linear infinite; }
 @keyframes sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.netgfx-edges path { stroke-dasharray: 5 9; animation: netgfx-flow 2.2s linear infinite; }
-@keyframes netgfx-flow { to { stroke-dashoffset: -28; } }
+.netgfx-edges path { opacity: 0.5; }
 .netgfx-node { transform-box: fill-box; transform-origin: center; animation: netgfx-pulse 2.6s ease-in-out infinite; }
 .netgfx-node--hub { animation: netgfx-pulse-hub 2.6s ease-in-out infinite; }
 @keyframes netgfx-pulse { 0%, 100% { opacity: 0.55; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.25); } }
@@ -362,7 +361,7 @@ main { display: block; }
   .hgfx-bezel, .hgfx-sweep, .hgfx-scanline, .hgfx-edges path, .hgfx-node, .hgfx-pulse { animation: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .netgfx-sweep, .netgfx-edges path, .netgfx-node { animation: none; }
+  .netgfx-sweep, .netgfx-node { animation: none; }
 }
 .hero__scroll { display: flex; justify-content: center; margin-top: var(--sp-8); }
 .hero__scroll svg { animation: bounce 1.8s ease-in-out infinite; color: rgba(237,239,247,0.5); }
@@ -530,7 +529,7 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: var(--sp-4); } }
 .split.reverse .split__visual { order: -1; }
 @media (max-width: 860px) { .split.reverse .split__visual { order: 0; } }
-.split__visual { border-radius: var(--r-lg); overflow: hidden; }
+.split__visual { border-radius: var(--r-lg); overflow: hidden; position: relative; min-height: 320px; }
 
 /* Values grid */
 .value-card { text-align: left; }
