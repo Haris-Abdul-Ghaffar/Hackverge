@@ -214,6 +214,7 @@ export function footer() {
 // Shared building blocks
 // ------------------------------------------------------------
 export function breadcrumbs(items) {
+  // items: [{label, href}] last item has no href
   const ld = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -361,50 +362,57 @@ export function networkGraphic({ id = "netgfx", compact = false } = {}) {
 }
 
 // ------------------------------------------------------------
-// Dedicated homepage-hero animation — a richer "SOC threat monitor"
-// visual: hex-grid backdrop, rotating scan bezel, radar sweep with a
-// glowing leading edge, a denser node mesh with flowing data lines,
-// a vertical scan-line pass, and staggered "detection pulse" rings.
+// Dedicated homepage-hero animation — a "cyber radar / SOC monitor"
+// HUD visual: hex-grid backdrop, rotating tick-marked bezel, a radar
+// sweep with a glowing leading edge, floating threat blips (not
+// connected by lines), particles orbiting the core, a vertical
+// scan-line pass, and staggered "detection pulse" rings.
 // ------------------------------------------------------------
 export function heroGraphic(id = "herogfx") {
-    if (typeof id !== "string") id = "herogfx";
   const cx = 285, cy = 275;
-  const nodes = [
-    { key: "hub", x: cx, y: cy, r: 8, hub: true },
-    { key: "n1", x: 145, y: 155, r: 5 },
-    { key: "n2", x: 300, y: 85, r: 4.5 },
-    { key: "n3", x: 445, y: 140, r: 5.5 },
-    { key: "n4", x: 485, y: 285, r: 4.5 },
-    { key: "n5", x: 420, y: 425, r: 5 },
-    { key: "n6", x: 260, y: 470, r: 4.5 },
-    { key: "n7", x: 115, y: 405, r: 5 },
-    { key: "n8", x: 75, y: 250, r: 4.5 },
+  const blips = [
+    { x: 145, y: 155, r: 5 },
+    { x: 300, y: 85, r: 4.5 },
+    { x: 445, y: 140, r: 5.5 },
+    { x: 485, y: 285, r: 4.5 },
+    { x: 420, y: 425, r: 5 },
+    { x: 260, y: 470, r: 4.5 },
+    { x: 115, y: 405, r: 5 },
+    { x: 75, y: 250, r: 4.5 },
   ];
-  const spokes = nodes.slice(1).map((n) => `<path d="M${cx} ${cy} L${n.x} ${n.y}"/>`).join("");
-  const web = [
-    ["n1", "n3"], ["n3", "n5"], ["n5", "n7"], ["n7", "n1"],
-  ]
-    .map(([a, b]) => {
-      const pa = nodes.find((n) => n.key === a);
-      const pb = nodes.find((n) => n.key === b);
-      return `<path d="M${pa.x} ${pa.y} L${pb.x} ${pb.y}"/>`;
-    })
-    .join("");
-  const nodeCircles = nodes
+  const blipCircles = blips
     .map(
       (n, i) =>
-        `<circle class="hgfx-node${n.hub ? " hgfx-node--hub" : ""}" cx="${n.x}" cy="${n.y}" r="${n.r}" fill="${n.hub ? "#8B6CFF" : "#29E0FF"}" style="animation-delay:-${(i * 0.55).toFixed(2)}s"/>`
+        `<circle class="hgfx-node" cx="${n.x}" cy="${n.y}" r="${n.r}" fill="#29E0FF" style="animation-delay:-${(i * 0.6).toFixed(2)}s"/>`
     )
     .join("");
-  const pulseNodes = ["n2", "n5", "n8"];
-  const pulses = pulseNodes
-    .map((key, i) => {
-      const n = nodes.find((x) => x.key === key);
+  const pulseIdx = [1, 4, 7];
+  const pulses = pulseIdx
+    .map((idx, i) => {
+      const n = blips[idx];
       return `<circle class="hgfx-pulse" cx="${n.x}" cy="${n.y}" r="6" style="animation-delay:${i * -4.3}s"/>`;
     })
     .join("");
+  const ticks = Array.from({ length: 24 }, (_, i) => {
+    const angle = (i * 15 * Math.PI) / 180;
+    const outer = 205, inner = i % 2 === 0 ? 193 : 199;
+    const x1 = cx + Math.cos(angle) * inner, y1 = cy + Math.sin(angle) * inner;
+    const x2 = cx + Math.cos(angle) * outer, y2 = cy + Math.sin(angle) * outer;
+    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+  }).join("");
+  const orbits = [
+    { r: 130, dur: 14, size: 4, dir: 1 },
+    { r: 178, dur: 22, size: 3.2, dir: -1 },
+    { r: 86, dur: 10, size: 3.6, dir: -1 },
+  ]
+    .map(
+      (o, i) => `<g class="hgfx-orbit" style="transform-origin:${cx}px ${cy}px; animation-duration:${o.dur}s; animation-direction:${o.dir === 1 ? "normal" : "reverse"};">
+      <circle cx="${cx + o.r}" cy="${cy}" r="${o.size}" fill="#8B6CFF" opacity="0.85"/>
+    </g>`
+    )
+    .join("");
 
-  return `<svg class="hero-gfx" viewBox="0 0 560 560" width="100%" height="100%" role="img" aria-label="Animated cybersecurity threat-monitoring visualization" xmlns="http://www.w3.org/2000/svg">
+  return `<svg class="hero-gfx" viewBox="0 0 560 560" width="100%" height="100%" role="img" aria-label="Animated cybersecurity threat-monitoring radar visualization" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="${id}-glow" cx="51%" cy="49%" r="58%">
       <stop offset="0%" stop-color="#6C4CF5" stop-opacity="0.38"/>
@@ -430,7 +438,8 @@ export function heroGraphic(id = "herogfx") {
   <circle cx="${cx}" cy="${cy}" r="205" fill="url(#${id}-glow)"/>
 
   <g class="hgfx-bezel" style="transform-origin: ${cx}px ${cy}px;">
-    <circle cx="${cx}" cy="${cy}" r="205" fill="none" stroke="#8B6CFF" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="205" fill="none" stroke="#8B6CFF" stroke-opacity="0.35" stroke-width="1.5"/>
+    <g stroke="#8B6CFF" stroke-opacity="0.45" stroke-width="1.5">${ticks}</g>
   </g>
 
   <circle cx="${cx}" cy="${cy}" r="165" fill="none" stroke="#8B6CFF" stroke-opacity="0.16"/>
@@ -439,24 +448,27 @@ export function heroGraphic(id = "herogfx") {
 
   <g clip-path="url(#${id}-clip)">
     <g class="hgfx-sweep" style="transform-origin: ${cx}px ${cy}px;">
-      <path d="M${cx} ${cy} L${cx} ${cy - 205} A205 205 0 0 1 ${cx + 133} ${cy - 156} Z" fill="url(#${id}-edge)" opacity="0.12"/>
-      <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 205}" stroke="#29E0FF" stroke-width="1.5" opacity="0.8"/>
+      <path d="M${cx} ${cy} L${cx} ${cy - 205} A205 205 0 0 1 ${cx + 133} ${cy - 156} Z" fill="url(#${id}-edge)" opacity="0.14"/>
+      <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 205}" stroke="#29E0FF" stroke-width="1.5" opacity="0.85"/>
     </g>
     <rect class="hgfx-scanline" x="0" y="-20" width="560" height="3" fill="url(#${id}-scan)"/>
   </g>
 
-  <g class="hgfx-edges" stroke="url(#${id}-edge)" stroke-width="1.1" opacity="0.55" fill="none">
-    ${spokes}
-  </g>
-  <g class="hgfx-edges hgfx-edges--web" stroke="#29E0FF" stroke-width="0.9" opacity="0.28" fill="none">
-    ${web}
-  </g>
+  <g class="hgfx-orbits">${orbits}</g>
 
   <g class="hgfx-pulses" fill="none" stroke="#29E0FF" stroke-width="1.5">
     ${pulses}
   </g>
 
-  <g>${nodeCircles}</g>
+  <g>${blipCircles}</g>
+
+  <g class="hgfx-reticle" stroke="#8B6CFF" stroke-width="1.5" opacity="0.9">
+    <circle cx="${cx}" cy="${cy}" r="13" fill="none"/>
+    <line x1="${cx - 20}" y1="${cy}" x2="${cx - 16}" y2="${cy}"/>
+    <line x1="${cx + 16}" y1="${cy}" x2="${cx + 20}" y2="${cy}"/>
+    <line x1="${cx}" y1="${cy - 20}" x2="${cx}" y2="${cy - 16}"/>
+    <line x1="${cx}" y1="${cy + 16}" x2="${cx}" y2="${cy + 20}"/>
+    <circle cx="${cx}" cy="${cy}" r="3" fill="#8B6CFF" stroke="none"/>
+  </g>
 </svg>`;
 }
-
