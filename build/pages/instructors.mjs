@@ -13,14 +13,6 @@ export function instructorsBody() {
   </div>
 </section>
 
-<section class="section">
-  <div class="container narrow">
-    <div class="disclosure-note">
-      Hackverge is a growing academy — instructor profiles below are placeholders for the founding team. Replace names, photos, and bios with your real instructors and mentors before launch.
-    </div>
-  </div>
-</section>
-
 ${philosophy()}
 ${team()}
 ${whyMentors()}
