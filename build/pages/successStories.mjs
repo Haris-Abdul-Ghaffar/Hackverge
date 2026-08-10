@@ -17,14 +17,6 @@ export function successStoriesBody() {
   </div>
 </section>
 
-<section class="section">
-  <div class="container narrow">
-    <div class="disclosure-note">
-      Hackverge is a new academy. Rather than fabricate alumni outcomes, this page currently showcases mentor achievements, student lab work, and community milestones. As graduates build their careers, we'll replace these with real, permission-based success stories.
-    </div>
-  </div>
-</section>
-
 ${community()}
 ${projects()}
 ${testimonialsSection()}
