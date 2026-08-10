@@ -86,7 +86,7 @@ function internships() {
   return `<section class="section">
   <div class="container narrow">
     <div class="disclosure-note">
-      <strong>Internship Opportunities:</strong> High-performing learners may be considered for internship opportunities, subject to availability, performance, and program requirements. Hackverge does not guarantee internship placement.
+      <strong>Internship Opportunities:</strong> High-performing learners may be considered for internship opportunities, subject to availability, performance, and program requirements.
     </div>
   </div>
 </section>`;
