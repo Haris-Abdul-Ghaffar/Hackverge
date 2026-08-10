@@ -155,6 +155,7 @@ main { display: block; }
   color: var(--purple-400);
   font-weight: 600;
   margin: 0 0 var(--sp-1);
+  max-width: none;
 }
 .eyebrow--onDark { color: var(--cyan-300); }
 .section-heading { max-width: 680px; margin-bottom: var(--sp-6); }
@@ -391,7 +392,7 @@ main { display: block; }
 
 /* Breadcrumbs */
 .breadcrumbs { margin-bottom: var(--sp-3); }
-.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.82rem; color: var(--text-muted); align-items: center; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.82rem; color: var(--text-muted); align-items: center; list-style: none; padding: 0; margin: 0; }
 .breadcrumbs a:hover { color: var(--purple-400); }
 .breadcrumbs__sep { opacity: 0.5; }
 
