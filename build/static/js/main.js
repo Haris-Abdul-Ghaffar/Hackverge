@@ -357,3 +357,32 @@
     raf = requestAnimationFrame(tick);
   });
 })();
+
+
+/* ==========================================================================
+   MOBILE-ONLY: hide homepage sections that duplicate full pages
+   (the content stays available on its own page)
+   ========================================================================== */
+(function () {
+  if (!document.querySelector(".hero")) return;   // homepage only
+
+  var HIDE_ON_MOBILE = [
+    "Learning Paths",
+    "From the Community",
+    "From the Blog"
+  ];
+
+  var mq = window.matchMedia("(max-width: 960px)");
+
+  function apply() {
+    document.querySelectorAll(".section").forEach(function (sec) {
+      var eb = sec.querySelector(".eyebrow");
+      var shouldHide = eb && HIDE_ON_MOBILE.indexOf(eb.textContent.trim()) !== -1;
+      sec.style.display = shouldHide && mq.matches ? "none" : "";
+    });
+  }
+
+  apply();
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+  else if (mq.addListener) mq.addListener(apply);   // older phones
+})();
