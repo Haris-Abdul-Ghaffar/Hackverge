@@ -681,3 +681,24 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 @media (max-width: 960px) {
   .mobile-nav:not([hidden]) { display: block; }
 }
+
+
+/* ============ MOBILE MENU: CLOSE BUTTON + DROPDOWNS ============ */
+@media (max-width: 960px) {
+  .nav { z-index: 95; }
+}
+.mnav__drop summary {
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 6px; font-size: 1.2rem; font-weight: 600;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+}
+.mnav__drop summary::-webkit-details-marker { display: none; }
+.mnav__drop summary svg { color: var(--text-muted); transition: transform var(--dur-fast) var(--ease); }
+.mnav__drop[open] summary svg { transform: rotate(180deg); }
+.mnav__drop a {
+  display: block; padding: 12px 6px 12px 20px;
+  font-size: 1rem; font-weight: 500; color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+.mnav__drop a:hover { color: var(--cyan-300); }
