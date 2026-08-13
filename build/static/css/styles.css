@@ -671,3 +671,7 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 /* ============ CANVAS ANIMATION ON INNER PAGES TOO ============ */
 /* keeps page titles & breadcrumbs above the canvas */
 .page-hero .container { position: relative; z-index: 1; }
+
+
+/* ============ HIDE BREADCRUMBS ON ALL PAGES ============ */
+.breadcrumbs { display: none !important; }
