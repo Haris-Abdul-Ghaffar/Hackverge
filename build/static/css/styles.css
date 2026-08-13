@@ -675,3 +675,9 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 
 /* ============ HIDE BREADCRUMBS ON ALL PAGES ============ */
 .breadcrumbs { display: none !important; }
+
+
+/* ============ FIX: MOBILE MENU NOW ACTUALLY OPENS ============ */
+@media (max-width: 960px) {
+  .mobile-nav:not([hidden]) { display: block; }
+}
