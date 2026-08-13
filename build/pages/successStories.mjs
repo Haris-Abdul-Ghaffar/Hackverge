@@ -12,7 +12,7 @@ export function successStoriesBody() {
     <p class="page-hero__sub">Hackverge believes learning becomes valuable when it produces real skills, meaningful projects, and measurable professional growth.</p>
     <div class="page-hero__actions">
       ${button({ label: "View Student Work", href: "#projects", variant: "primary", icon: "arrowRight" })}
-      ${button({ label: "Join Hackverge", href: "/apply/", variant: "ghost-onDark" })}
+      <a class="btn btn--ghost-onDark" href="https://discord.gg/DHhMrKSaVk" target="_blank" rel="noopener">Join Hackverge</a>
     </div>
   </div>
 </section>
