@@ -38,6 +38,7 @@ export const nav = [
   },
   { label: "Enterprise Labs", href: "/enterprise-labs/" },
   { label: "Career Services", href: "/career-services/" },
+  { href: "/contact/", label: "Contact" },
   { label: "Blog", href: "/blog/" },
 ];
 
