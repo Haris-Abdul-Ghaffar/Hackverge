@@ -147,7 +147,26 @@ export function navbar(path) {
 </header>
 <div class="mobile-nav" id="mobileNav" hidden>
   <nav aria-label="Mobile">
-    ${nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
+    ${nav
+  .map((item) => {
+    if (item.mega === "paths") {
+      return `<details class="mnav__drop">
+        <summary>${item.label} ${icon("chevronDown", 16)}</summary>
+        ${learningPaths.map((p) => `<a href="/learning-paths/${p.slug}/">${p.name}</a>`).join("")}
+        <a href="/learning-paths/">View all learning paths</a>
+      </details>`;
+    }
+    if (item.mega === "courses") {
+      return `<details class="mnav__drop">
+        <summary>${item.label} ${icon("chevronDown", 16)}</summary>
+        ${courses.slice(0, 5).map((c) => `<a href="/courses/${c.slug}/">${c.title}</a>`).join("")}
+        <a href="/courses/">Browse all courses</a>
+      </details>`;
+    }
+    return `<a href="${item.href}">${item.label}</a>`;
+  })
+  .join("")}
+  
        <!-- <a href="/login/">Login</a> -->
     <a href="/apply/" class="btn btn--primary">Apply Now</a>
   </nav>
