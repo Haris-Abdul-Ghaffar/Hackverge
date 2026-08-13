@@ -653,3 +653,16 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 .wordmark--text .w-verge { color: var(--purple-400); }
 [data-theme="light"] .wordmark--text .w-hack { color: var(--navy-950); }
 .footer .wordmark--text .w-hack { color: #fff; }
+
+/* ============ NEW CANVAS HERO — back-layer lock ============ */
+.hero__canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero__inner, .hero__scroll { position: relative; z-index: 1; }
+
+/* hide the OLD svg animation inside the hero only (labs teaser keeps its graphic) */
+.hero .network-gfx { display: none; }
+@media (max-width: 900px) { .hero__visual { display: none; } }
+
+/* menu stays readable above the animation */
+.nav { background: linear-gradient(180deg, rgba(5,7,15,0.85) 0%, rgba(5,7,15,0) 100%); }
+[data-theme="light"] .nav { background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0) 100%); }
+.nav.is-scrolled { background: var(--nav-bg); }
