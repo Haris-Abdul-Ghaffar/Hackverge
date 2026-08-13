@@ -129,7 +129,7 @@ export function navbar(path) {
         <span class="theme-icon theme-icon--sun">${icon("sun", 18)}</span>
         <span class="theme-icon theme-icon--moon">${icon("moon", 18)}</span>
       </button>
-      <a href="/login/" class="nav__login">Login</a>
+       <!-- <a href="/login/" class="nav__login">Login</a> -->
       <a href="/apply/" class="btn btn--primary btn--sm">Apply Now</a>
     </div>
     <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
@@ -148,7 +148,7 @@ export function navbar(path) {
 <div class="mobile-nav" id="mobileNav" hidden>
   <nav aria-label="Mobile">
     ${nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
-    <a href="/login/">Login</a>
+       <!-- <a href="/login/">Login</a> -->
     <a href="/apply/" class="btn btn--primary">Apply Now</a>
   </nav>
 </div>`;
