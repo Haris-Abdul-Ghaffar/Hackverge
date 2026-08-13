@@ -702,3 +702,22 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
   border-bottom: 1px solid var(--border);
 }
 .mnav__drop a:hover { color: var(--cyan-300); }
+
+
+/* ============ MOBILE MENU: SCROLL + NO OVERLAP ============ */
+@media (max-width: 960px) {
+  /* 1) let the menu scroll when its content is taller than the screen */
+  .mobile-nav {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 110px;   /* clear headroom below the navbar */
+  }
+
+  /* 2) solid blurred backdrop for the navbar so links never collide with the logo */
+  .nav {
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+}
