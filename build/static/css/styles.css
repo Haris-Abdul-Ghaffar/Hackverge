@@ -748,5 +748,4 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
   transform-origin: left center;                   /* hovering: grows from the left */
 }
 
-/* optional — remove the old gray hover box so ONLY the underline shows, like the video */
-.nav__link:hover { background: transparent; }
+
