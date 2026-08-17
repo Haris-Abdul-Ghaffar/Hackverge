@@ -735,7 +735,7 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--purple-400), var(--cyan-400));
-  box-shadow: 0 0 10px rgba(41, 224, 255, 0.35);   /* soft cyber glow */
+  box-shadow: 0 0 10px rgba(41, 224, 255, 0.5);   /* soft cyber glow */
   transform: scaleX(0);                            /* hidden (zero width) */
   transform-origin: right center;                  /* leaving: shrinks to the right */
   transition: transform var(--dur-med) var(--ease);
@@ -747,5 +747,6 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
   transform: scaleX(1);                            /* full width */
   transform-origin: left center;                   /* hovering: grows from the left */
 }
-
+/* optional — remove the old gray hover box so ONLY the underline shows, like the video */
+.nav__link:hover { background: transparent; }
 
