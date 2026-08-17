@@ -15,7 +15,6 @@ ${learningPathsSection()}
 ${enterpriseLabsTeaser()}
 ${careerServicesTeaser()}
 ${studentJourney()}
-${testimonialsSection()}
 ${latestArticles()}
 ${faqSection()}
 ${ctaSection({
