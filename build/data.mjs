@@ -86,6 +86,7 @@ export const technologies = [
   { name: "JADX", slug: "jadx", icon: "terminal", category: "Offensive" },
   { name: "MobSF", slug: "mobsf", icon: "smartphone", category: "Offensive" },
   { name: "SocRadar", slug: "socradar", icon: "scan", category: "Enterprise" },
+  { name: "Frida", slug: "frida", icon: "smartphone", category: "Offensive" },
 ];
 
 // ------------------------------------------------------------
@@ -102,7 +103,7 @@ export const learningPaths = [
     heroDescription:
       "Offensive Security teaches you to think like an attacker — reconnaissance, exploitation, and reporting — so organizations can find and fix weaknesses before real adversaries do.",
     difficulty: "Intermediate",
-    duration: "3 Months",
+    duration: "6 Months",
     courses: [
       "ethical-hacking",
       "web-penetration-testing",
@@ -133,7 +134,7 @@ export const learningPaths = [
     heroDescription:
       "Blue Team training puts you inside a modern Security Operations Center — triaging alerts, hunting threats, and responding to incidents using the same tools enterprise SOCs run every day.",
     difficulty: "Beginner to Intermediate",
-    duration: "3 Months",
+    duration: "5 Months",
     courses: ["soc-analyst", "QRadar", "microsoft-defender-xdr", "crowdstrike-falcon"],
     technologies: ["QRadar", "Microsoft Defender XDR", "CrowdStrike Falcon", "Threat Intel"],
     skills: [
@@ -158,7 +159,7 @@ export const learningPaths = [
     heroDescription:
       "Enterprise Security trains you on the identity, data-protection, and vulnerability-management platforms that large organizations rely on to govern access and reduce risk at scale.",
     difficulty: "Intermediate",
-    duration: "4 Months",
+    duration: "7-8 Months",
     courses: ["Trend-vision-one", "delinea-pam", "sophos-XDR", "vulnerability-management", "patch-management", "kaspersky-EDR"],
     technologies: ["Trend Vision One", "Delinea PAM", "Sophos XDR", "Kaspersky EDR", "Rapid7", "Microsoft Defender XDR", "SocRadar", "Patch Management", "Invicti"],
     skills: ["PAM Administration", "DLP Policies", "Risk Assessment", "Patch Strategy", "Asset Management", "Security Architecture"],
@@ -213,7 +214,7 @@ export const courses = [
     title: "Web Application Penetration Testing",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "3 months",
+    duration: "2 months",
     delivery: "Live Online",
     tagline: "Find and report the vulnerabilities that put real applications at risk.",
     overview:
@@ -245,7 +246,7 @@ export const courses = [
     title: "Mobile Application Penetration Testing",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "3 Months",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Assess Android and iOS applications with an enterprise-grade methodology.",
     overview:
@@ -276,7 +277,7 @@ export const courses = [
     title: "Bug Bounty Hunting",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "3 Months",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Turn your offensive security skills into an independent research practice.",
     overview:
@@ -306,7 +307,7 @@ export const courses = [
     title: "SOC Analyst",
     path: "defensive-security",
     level: "Beginner",
-    duration: "3 months",
+    duration: "2 months",
     delivery: "Live Online",
     tagline: "Learn to triage, investigate, and escalate like a Tier 1–2 SOC analyst.",
     overview:
@@ -337,7 +338,7 @@ export const courses = [
     title: "Microsoft Defender XDR",
     path: "defensive-security",
     level: "Intermediate",
-    duration: "6 Weeks",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Operate and investigate with Microsoft's extended detection and response platform.",
     overview:
@@ -363,11 +364,11 @@ export const courses = [
     ],
   },
   {
-    slug: "microsoft-sentinel",
-    title: "Microsoft Sentinel",
+    slug: "QRadar SIEM",
+    title: "QRadar SIEM",
     path: "defensive-security",
     level: "Intermediate",
-    duration: "6 Weeks",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Build detections and run investigations in a cloud-native SIEM.",
     overview:
@@ -377,9 +378,9 @@ export const courses = [
       technical: ["Data connector configuration", "Analytics rule creation", "KQL for detection engineering", "Automation with playbooks"],
       professional: ["Detection documentation", "Tuning for false-positive reduction"],
     },
-    tools: ["Microsoft Sentinel", "KQL", "Logic Apps"],
+    tools: ["QRadar SIEM", "Query Language", "Logic Apps"],
     curriculum: [
-      { title: "Sentinel Architecture", desc: "Workspaces, data connectors, and the log analytics pipeline." },
+      { title: "QRadar Architecture", desc: "Workspaces, data connectors, and the log analytics pipeline." },
       { title: "Analytics Rules & Detection Engineering", desc: "Building rules that catch real threats without alert fatigue." },
       { title: "Workbooks & Dashboards", desc: "Visualizing security data for analysts and leadership." },
       { title: "Automation with Playbooks", desc: "Using Logic Apps to automate response actions." },
@@ -388,14 +389,14 @@ export const courses = [
     labs: ["Connector configuration lab", "Custom detection rule lab", "Playbook automation lab"],
     projects: ["Design and deploy a detection rule set for a simulated environment"],
     careerOutcomes: ["SOC Analyst", "Detection Engineer", "Security Operations Engineer"],
-    faqs: [{ q: "Is KQL taught from scratch?", a: "Yes — no prior KQL experience is required." }],
+    faqs: [{ q: "Is QL taught from scratch?", a: "Yes — no prior QL experience is required." }],
   },
   {
     slug: "crowdstrike-falcon",
     title: "CrowdStrike Falcon",
     path: "defensive-security",
     level: "Intermediate",
-    duration: "5 Weeks",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Endpoint detection and response with an industry-leading EDR platform.",
     overview:
@@ -417,39 +418,39 @@ export const courses = [
     careerOutcomes: ["SOC Analyst", "Incident Responder", "Endpoint Security Engineer"],
     faqs: [{ q: "Is this course vendor-certified?", a: "This is independent Hackverge training on the platform, not an official CrowdStrike certification." }],
   },
-  {
-    slug: "cyberark-pam",
-    title: "CyberArk PAM",
-    path: "enterprise-security",
-    level: "Intermediate",
-    duration: "6 Weeks",
-    delivery: "Live Online",
-    tagline: "Administer privileged access the way enterprise security teams do.",
-    overview:
-      "Covers CyberArk's Privileged Access Management suite — vaulting, session management, and policy configuration used to control and monitor administrative access across an enterprise.",
-    whoShouldEnroll: ["IT administrators", "Learners on the Enterprise Security path", "Security engineers focused on identity"],
-    skills: {
-      technical: ["Privileged account vaulting", "Session monitoring & isolation", "Access policy configuration", "Credential rotation"],
-      professional: ["Access governance documentation", "Risk-based policy design"],
-    },
-    tools: ["CyberArk PAM"],
-    curriculum: [
-      { title: "PAM Fundamentals", desc: "Why privileged access is a top attack target and how PAM mitigates it." },
-      { title: "Vaulting & Credential Management", desc: "Onboarding and rotating privileged credentials safely." },
-      { title: "Session Monitoring & Isolation", desc: "Recording and controlling privileged sessions in real time." },
-      { title: "Policy Configuration", desc: "Designing access policies aligned to least-privilege principles." },
-    ],
-    labs: ["Vault configuration lab", "Session isolation lab", "Policy design exercise"],
-    projects: ["Design a PAM policy framework for a simulated enterprise environment"],
-    careerOutcomes: ["IAM/PAM Engineer", "Security Engineer", "Security Administrator"],
-    faqs: [{ q: "Do I need prior identity management experience?", a: "Basic IT administration knowledge is helpful but not required." }],
+{
+  slug: "trend-vision-one",
+  title: "Trend Vision One",
+  path: "enterprise-security",
+  level: "Intermediate",
+  duration: "2 Months",
+  delivery: "Live Online",
+  tagline: "Master unified XDR and threat intelligence across multi-cloud and enterprise environments.",
+  overview:
+    "Covers Trend Vision One's centralized XDR platform — telemetry integration, threat detection, risk posture management, and automated incident response across endpoint, network, email, and cloud workloads.",
+  whoShouldEnroll: ["SOC analysts", "Learners on the Enterprise Security path", "Security engineers focused on threat detection & XDR"],
+  skills: {
+    technical: ["Unified XDR telemetry analysis", "Cross-layer threat hunting", "Risk index & posture monitoring", "Automated incident response playbook execution"],
+    professional: ["Incident response reporting", "Risk-based prioritization"],
   },
+  tools: ["Trend Vision One"],
+  curriculum: [
+    { title: "XDR Fundamentals & Platform Overview", desc: "Understanding extended detection and response across endpoint, network, and cloud telemetry." },
+    { title: "Telemetry Integration & Sensor Deployment", desc: "Connecting enterprise data sources and managing agent security posture." },
+    { title: "Threat Hunting & Workbench Analysis", desc: "Investigating multi-vector attacks and correlated detections in real time." },
+    { title: "Risk Posture & Incident Response", desc: "Evaluating attack surfaces and automating containment actions across connected endpoints." },
+  ],
+  labs: ["Sensor deployment & integration lab", "Cross-layer threat hunting lab", "Incident containment & response exercise"],
+  projects: ["Build an automated threat triage and incident response workflow for a simulated enterprise environment"],
+  careerOutcomes: ["SOC Analyst", "XDR Engineer", "Security Operations Engineer"],
+  faqs: [{ q: "Do I need prior SOC experience?", a: "Basic networking and fundamental security concepts are helpful but not required." }],
+},
   {
     slug: "delinea-pam",
     title: "Delinea PAM",
     path: "enterprise-security",
     level: "Intermediate",
-    duration: "4 Weeks",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "A second major PAM platform to broaden your enterprise identity skill set.",
     overview:
@@ -470,39 +471,41 @@ export const courses = [
     careerOutcomes: ["IAM/PAM Engineer", "Security Engineer"],
     faqs: [{ q: "Is CyberArk PAM a prerequisite?", a: "Recommended but not required — the core PAM concepts are reintroduced." }],
   },
-  {
-    slug: "microsoft-purview-dlp",
-    title: "Microsoft Purview DLP",
-    path: "enterprise-security",
-    level: "Intermediate",
-    duration: "5 Weeks",
-    delivery: "Live Online",
-    tagline: "Prevent sensitive data loss across an enterprise Microsoft 365 environment.",
-    overview:
-      "Covers Microsoft Purview's data loss prevention capabilities — sensitivity labeling, policy design, and investigating policy matches across email, endpoints, and cloud apps.",
-    whoShouldEnroll: ["Enterprise Security path learners", "Compliance-minded IT professionals", "Security engineers focused on data protection"],
-    skills: {
-      technical: ["Sensitivity labeling", "DLP policy design", "Policy match investigation", "Insider risk basics"],
-      professional: ["Compliance-aligned documentation", "Cross-team policy communication"],
-    },
-    tools: ["Microsoft Purview"],
-    curriculum: [
-      { title: "Data Protection Fundamentals", desc: "Why DLP matters and how it fits into a broader compliance strategy." },
-      { title: "Sensitivity Labels & Classification", desc: "Classifying data so policies can act on it correctly." },
-      { title: "DLP Policy Design", desc: "Building policies that catch real risk without blocking legitimate work." },
-      { title: "Investigating Policy Matches", desc: "Reviewing and acting on DLP alerts." },
-    ],
-    labs: ["Label configuration lab", "Policy design lab", "Alert investigation exercise"],
-    projects: ["Design a DLP policy set for a simulated data movement scenario"],
-    careerOutcomes: ["Enterprise Security Analyst", "Compliance & Data Protection Analyst"],
-    faqs: [{ q: "Is this course compliance-focused or technical?", a: "Both — you'll learn the technical configuration and the reasoning behind common compliance requirements." }],
+  
+ {
+  slug: "forcepoint-dlp",
+  title: "Forcepoint DLP",
+  path: "enterprise-security",
+  level: "Expert",
+  duration: "3 Months",
+  delivery: "Live Online",
+  tagline: "Protect critical data assets and prevent data exfiltration across web, cloud, and endpoint channels.",
+  overview:
+    "Covers Forcepoint Data Loss Prevention capabilities — data discovery, fingerprinted IP protection, custom policy enforcement, and Incident Risk Ranking (IRR) to secure sensitive information across endpoints, networks, and cloud storage.",
+  whoShouldEnroll: ["Enterprise Security path learners", "Compliance-minded IT professionals", "Security engineers focused on data protection"],
+  skills: {
+    technical: ["Exact Data Matching (EDM) & fingerprinting", "Forcepoint DLP policy design", "Endpoint & network discovery", "Incident Risk Ranking (IRR) analysis"],
+    professional: ["Compliance-aligned documentation", "Cross-team policy communication"],
   },
+  tools: ["Forcepoint DLP"],
+  curriculum: [
+    { title: "Data Loss Prevention Fundamentals", desc: "Understanding data exfiltration vectors and how Forcepoint DLP mitigates data loss risks." },
+    { title: "Data Classification & Fingerprinting", desc: "Configuring classifiers, regex patterns, and optical character recognition (OCR) to identify sensitive data." },
+    { title: "Policy Design & Enforcement", desc: "Building granular channel policies across endpoints, network channels, and cloud applications." },
+    { title: "Incident Triage & Risk Analysis", desc: "Investigating DLP alerts, analyzing user risk severity, and executing remediation workflows." },
+  ],
+  labs: ["Data fingerprinting & classifier lab", "Policy design & channel enforcement lab", "Incident triage & IRR exercise"],
+  projects: ["Design a Forcepoint DLP policy framework for a simulated data exfiltration scenario"],
+  careerOutcomes: ["Enterprise Security Analyst", "DLP Administrator", "Compliance & Data Protection Analyst"],
+  faqs: [{ q: "Is this course compliance-focused or technical?", a: "Both — you'll learn technical system administration and policy design aligned with industry compliance frameworks." }],
+},
+  
   {
     slug: "vulnerability-management",
     title: "Vulnerability Management",
     path: "enterprise-security",
     level: "Intermediate",
-    duration: "5 Weeks",
+    duration: "2 Months",
     delivery: "Live Online",
     tagline: "Run the full lifecycle from scanning to remediation tracking.",
     overview:
@@ -512,7 +515,7 @@ export const courses = [
       technical: ["Asset discovery", "Vulnerability scanning", "Risk-based prioritization (CVSS)", "Remediation tracking"],
       professional: ["Stakeholder reporting", "Risk communication to non-technical teams"],
     },
-    tools: ["Qualys", "Nessus"],
+    tools: ["Qualys", "Acunetix", "Invicti"],
     curriculum: [
       { title: "Vulnerability Management Lifecycle", desc: "Discover, assess, prioritize, remediate, verify — the full cycle." },
       { title: "Scanning Fundamentals", desc: "Configuring and running scans with minimal operational disruption." },
@@ -528,8 +531,8 @@ export const courses = [
     slug: "patch-management",
     title: "Patch Management",
     path: "enterprise-security",
-    level: "Beginner",
-    duration: "3 Weeks",
+    level: "Expert",
+    duration: "3 Months",
     delivery: "Live Online",
     tagline: "Close the gap between vulnerability discovery and remediation.",
     overview:
@@ -539,7 +542,7 @@ export const courses = [
       technical: ["Patch scheduling & deployment", "Testing & staged rollouts", "Exception handling", "Compliance tracking"],
       professional: ["Change management communication", "Downtime risk planning"],
     },
-    tools: ["Microsoft Defender", "Patch management tooling"],
+    tools: ["Ivanti", "Patch management tooling"],
     curriculum: [
       { title: "Patch Management Fundamentals", desc: "Why patching is a top-priority control and where it commonly fails." },
       { title: "Testing & Staged Rollouts", desc: "Reducing risk before deploying patches broadly." },
