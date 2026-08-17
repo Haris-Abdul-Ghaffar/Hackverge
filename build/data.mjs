@@ -72,20 +72,20 @@ export const footerLinks = {
 // ------------------------------------------------------------
 export const technologies = [
   { name: "Microsoft Defender XDR", slug: "microsoft-defender-xdr", icon: "shield", category: "Defensive" },
-  { name: "Microsoft Sentinel", slug: "microsoft-sentinel", icon: "radar", category: "Defensive" },
-  { name: "CrowdStrike Falcon", slug: "crowdstrike-falcon", icon: "falcon", category: "Defensive" },
-  { name: "CyberArk PAM", slug: "cyberark-pam", icon: "key", category: "Enterprise" },
-  { name: "Delinea", slug: "delinea-pam", icon: "lock", category: "Enterprise" },
-  { name: "Microsoft Purview", slug: "microsoft-purview-dlp", icon: "fileShield", category: "Enterprise" },
-  { name: "Trend Vision One", slug: "trend-vision-one", icon: "eye", category: "Defensive" },
-  { name: "Sophos XDR", slug: "sophos-xdr", icon: "shieldCheck", category: "Defensive" },
+  { name: "QRadar SIEM", slug: "QRadar SIEM", icon: "radar", category: "Defensive" },
+  { name: "CrowdStrike EDR/XDR", slug: "crowdstrike-XDR", icon: "falcon", category: "Defensive" },
+  { name: "Delinea PAM", slug: "delinea-pam", icon: "key", category: "Enterprise" },
+  { name: "Forcepoint DLP", slug: "Forcepoint-DLP", icon: "lock", category: "Enterprise" },
+  { name: "Patch Management", slug: "patch-management", icon: "fileShield", category: "Enterprise" },
+  { name: "Trend Vision One", slug: "trend-vision-one", icon: "eye", category: "Enterprise" },
+  { name: "Sophos EDR/XDR", slug: "sophos-xdr", icon: "shieldCheck", category: "Enterprise" },
   { name: "Burp Suite Professional", slug: "burp-suite", icon: "bug", category: "Offensive" },
-  { name: "Wireshark", slug: "wireshark", icon: "wave", category: "Offensive" },
-  { name: "Nmap", slug: "nmap", icon: "network", category: "Offensive" },
-  { name: "OWASP ZAP", slug: "owasp-zap", icon: "target", category: "Offensive" },
-  { name: "Metasploit", slug: "metasploit", icon: "terminal", category: "Offensive" },
+  { name: "Invicti", slug: "invicti", icon: "wave", category: "Offensive" },
+  { name: "Qualys", slug: "nmap", icon: "network", category: "Offensive" },
+  { name: "Firewalls", slug: "firewall", icon: "target", category: "Enterprise" },
+  { name: "JADX", slug: "jadx", icon: "terminal", category: "Offensive" },
   { name: "MobSF", slug: "mobsf", icon: "smartphone", category: "Offensive" },
-  { name: "Qualys", slug: "qualys", icon: "scan", category: "Enterprise" },
+  { name: "SocRadar", slug: "socradar", icon: "scan", category: "Enterprise" },
 ];
 
 // ------------------------------------------------------------
@@ -102,14 +102,14 @@ export const learningPaths = [
     heroDescription:
       "Offensive Security teaches you to think like an attacker — reconnaissance, exploitation, and reporting — so organizations can find and fix weaknesses before real adversaries do.",
     difficulty: "Intermediate",
-    duration: "6–8 Months",
+    duration: "3 Months",
     courses: [
       "ethical-hacking",
       "web-penetration-testing",
       "mobile-pentesting",
       "bug-bounty",
     ],
-    technologies: ["Burp Suite", "OWASP ZAP", "Nmap", "sqlmap", "Wireshark", "Metasploit", "MobSF", "Frida", "JADX"],
+    technologies: ["Burp Suite", "Invicti", "Acunetix", "sqlmap", "JADX", "MobSF", "Sonarcube", "Manual Pentest", "etc"],
     skills: [
       "Reconnaissance",
       "Vulnerability Assessment",
@@ -133,9 +133,9 @@ export const learningPaths = [
     heroDescription:
       "Blue Team training puts you inside a modern Security Operations Center — triaging alerts, hunting threats, and responding to incidents using the same tools enterprise SOCs run every day.",
     difficulty: "Beginner to Intermediate",
-    duration: "5–7 Months",
-    courses: ["soc-analyst", "microsoft-sentinel", "microsoft-defender-xdr", "crowdstrike-falcon"],
-    technologies: ["Microsoft Sentinel", "Microsoft Defender XDR", "CrowdStrike Falcon", "Sophos XDR", "Trend Vision One"],
+    duration: "3 Months",
+    courses: ["soc-analyst", "QRadar", "microsoft-defender-xdr", "crowdstrike-falcon"],
+    technologies: ["QRadar", "Microsoft Defender XDR", "CrowdStrike Falcon", "Threat Intel"],
     skills: [
       "Log Analysis",
       "Threat Detection",
@@ -158,9 +158,9 @@ export const learningPaths = [
     heroDescription:
       "Enterprise Security trains you on the identity, data-protection, and vulnerability-management platforms that large organizations rely on to govern access and reduce risk at scale.",
     difficulty: "Intermediate",
-    duration: "6 Months",
-    courses: ["cyberark-pam", "delinea-pam", "microsoft-purview-dlp", "vulnerability-management", "patch-management"],
-    technologies: ["CyberArk", "Delinea", "Microsoft Purview", "Qualys", "Nessus", "Microsoft Defender", "Trend Vision One"],
+    duration: "4 Months",
+    courses: ["Trend-vision-one", "delinea-pam", "sophos-XDR", "vulnerability-management", "patch-management", "kaspersky-EDR"],
+    technologies: ["Trend Vision One", "Delinea PAM", "Sophos XDR", "Kaspersky EDR", "Rapid7", "Microsoft Defender XDR", "SocRadar", "Patch Management", "Invicti"],
     skills: ["PAM Administration", "DLP Policies", "Risk Assessment", "Patch Strategy", "Asset Management", "Security Architecture"],
     jobs: ["Security Engineer", "Enterprise Security Analyst", "IAM/PAM Engineer", "Security Administrator"],
     comparison: { beginnerFriendly: 2, programming: "Low", enterpriseTools: "Very High", labs: "High", demand: "High", remote: "High" },
@@ -181,7 +181,7 @@ export const courses = [
     title: "Ethical Hacking Fundamentals",
     path: "offensive-security",
     level: "Beginner",
-    duration: "8 Weeks",
+    duration: "3 Months",
     delivery: "Live Online",
     tagline: "The foundation every offensive security career is built on.",
     overview:
@@ -191,7 +191,7 @@ export const courses = [
       technical: ["Reconnaissance & footprinting", "Network scanning", "Vulnerability identification", "Basic exploitation techniques"],
       professional: ["Structured methodology", "Report writing", "Ethical & legal boundaries", "Communication with stakeholders"],
     },
-    tools: ["Nmap", "Wireshark", "Metasploit", "Burp Suite"],
+    tools: ["Nmap", "Acunetix", "Metasploit", "Burp Suite", "etc"],
     curriculum: [
       { title: "Security Fundamentals & Ethics", desc: "CIA triad, threat landscape, legal boundaries, and the ethical hacker's code of conduct." },
       { title: "Reconnaissance & Footprinting", desc: "Passive and active information gathering techniques used before any engagement." },
@@ -213,7 +213,7 @@ export const courses = [
     title: "Web Application Penetration Testing",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "10 Weeks",
+    duration: "3 months",
     delivery: "Live Online",
     tagline: "Find and report the vulnerabilities that put real applications at risk.",
     overview:
@@ -223,7 +223,7 @@ export const courses = [
       technical: ["Authentication & session testing", "Injection attacks (SQLi, XSS, etc.)", "Authorization & business logic testing", "API security testing"],
       professional: ["Client-ready reporting", "Risk rating (CVSS)", "Retesting & remediation verification"],
     },
-    tools: ["Burp Suite Professional", "OWASP ZAP", "sqlmap", "Postman"],
+    tools: ["Burp Suite Professional", "Invicti", "sqlmap", "Postman"],
     curriculum: [
       { title: "Web Architecture & the OWASP Top 10", desc: "How modern web apps are built, and where the most common risks live." },
       { title: "Authentication & Session Testing", desc: "Login flows, session handling, token weaknesses, and MFA bypass patterns." },
@@ -245,7 +245,7 @@ export const courses = [
     title: "Mobile Application Penetration Testing",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "8 Weeks",
+    duration: "3 Months",
     delivery: "Live Online",
     tagline: "Assess Android and iOS applications with an enterprise-grade methodology.",
     overview:
@@ -276,7 +276,7 @@ export const courses = [
     title: "Bug Bounty Hunting",
     path: "offensive-security",
     level: "Intermediate",
-    duration: "6 Weeks",
+    duration: "3 Months",
     delivery: "Live Online",
     tagline: "Turn your offensive security skills into an independent research practice.",
     overview:
@@ -306,7 +306,7 @@ export const courses = [
     title: "SOC Analyst",
     path: "defensive-security",
     level: "Beginner",
-    duration: "10 Weeks",
+    duration: "3 months",
     delivery: "Live Online",
     tagline: "Learn to triage, investigate, and escalate like a Tier 1–2 SOC analyst.",
     overview:
@@ -316,7 +316,7 @@ export const courses = [
       technical: ["Alert triage", "Log analysis", "SIEM operation", "MITRE ATT&CK mapping"],
       professional: ["Case documentation", "Escalation communication", "Shift-handover reporting"],
     },
-    tools: ["Microsoft Sentinel", "Microsoft Defender XDR", "MITRE ATT&CK Navigator"],
+    tools: ["QRadar SIEM", "Microsoft Defender XDR", "MITRE ATT&CK Navigator"],
     curriculum: [
       { title: "SOC Operations Overview", desc: "How a modern SOC is structured, tiers, and the analyst workflow." },
       { title: "Log Analysis Fundamentals", desc: "Reading logs across endpoint, network, and identity sources." },
