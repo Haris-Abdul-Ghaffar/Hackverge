@@ -166,6 +166,16 @@ export const learningPaths = [
     jobs: ["Security Engineer", "Enterprise Security Analyst", "IAM/PAM Engineer", "Security Administrator"],
     comparison: { beginnerFriendly: 2, programming: "Low", enterpriseTools: "Very High", labs: "High", demand: "High", remote: "High" },
   },
+    {
+    slug: "network-security",
+    name: "Network Security",
+    short: "Network Defense",
+    icon: "shield",
+    duration: "5–6 Months",
+    difficulty: "Beginner to Advance",
+    description: "Design, deploy, and manage enterprise perimeter defense. Master FortiGate, Cisco, Sophos, and Palo Alto platforms to secure firewalls, routing, VPNs, and SD-WAN ecosystems the way enterprise network teams do.",
+    tags: ["FortiGate", "Cisco", "Sophos", "Palo Alto", "VPN", "SD-WAN", "CCNA"],
+  },
 ];
 
 export const futurePaths = [
