@@ -166,16 +166,28 @@ export const learningPaths = [
     jobs: ["Security Engineer", "Enterprise Security Analyst", "IAM/PAM Engineer", "Security Administrator"],
     comparison: { beginnerFriendly: 2, programming: "Low", enterpriseTools: "Very High", labs: "High", demand: "High", remote: "High" },
   },
-    {
+  {
     slug: "network-security",
     name: "Network Security",
     short: "Network Defense",
     icon: "shield",
     duration: "5–6 Months",
-    difficulty: "Beginner to Advance",
+    difficulty: "Beginner to Advanced",
     description: "Design, deploy, and manage enterprise perimeter defense. Master FortiGate, Cisco, Sophos, and Palo Alto platforms to secure firewalls, routing, VPNs, and SD-WAN ecosystems the way enterprise network teams do.",
+    heroDescription: "Network Security trains you on the firewall, routing, and VPN platforms that protect enterprise perimeters — configuring policies, inspecting traffic, and building resilient network architectures using the same tools network security teams run every day.",
+    courses: ["fortinet-fortigate-nse4", "cisco-ccna-networking", "sophos-firewall-administration", "cisco-firewall-ftd-firepower", "palo-alto-networks-pcnse"],
     technologies: ["FortiGate", "Cisco", "Sophos", "Palo Alto", "VPN", "SD-WAN", "CCNA"],
-  },
+    skills: [
+      "Firewall policy design & troubleshooting",
+      "Routing, switching, VLANs, and SD-WAN deployment",
+      "IPsec, SSL, and remote-access VPN configuration",
+      "High availability and failover design",
+      "SSL/TLS decryption and deep packet inspection",
+      "Network logging, monitoring, and diagnostics",
+    ],
+    jobs: ["Network Security Engineer", "Firewall Administrator", "Network Operations Center (NOC) Analyst", "Infrastructure Security Specialist", "SD-WAN Engineer"],
+    comparison: { beginnerFriendly: 3, programming: "Low", enterpriseTools: "Very High", labs: "High", demand: "High", remote: "High" },
+  },  
 ];
 
 export const futurePaths = [
