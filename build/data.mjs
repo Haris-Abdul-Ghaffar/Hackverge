@@ -174,7 +174,7 @@ export const learningPaths = [
     duration: "5–6 Months",
     difficulty: "Beginner to Advance",
     description: "Design, deploy, and manage enterprise perimeter defense. Master FortiGate, Cisco, Sophos, and Palo Alto platforms to secure firewalls, routing, VPNs, and SD-WAN ecosystems the way enterprise network teams do.",
-    tags: ["FortiGate", "Cisco", "Sophos", "Palo Alto", "VPN", "SD-WAN", "CCNA"],
+    technologies: ["FortiGate", "Cisco", "Sophos", "Palo Alto", "VPN", "SD-WAN", "CCNA"],
   },
 ];
 
