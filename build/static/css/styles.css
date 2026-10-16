@@ -835,3 +835,82 @@ table.compare td:first-child, table.compare th:first-child { font-weight: 600; c
 [data-theme="light"] .field select,
 [data-theme="light"] .field textarea { background: #FFFFFF; border-color: rgba(16, 20, 58, 0.18); }
 
+
+
+/* ==========================================================================
+   LIGHT THEME — PROFESSIONAL DEPTH & POLISH (append-only override)
+   ========================================================================== */
+
+/* 1) Keep hero & page-hero DARK in light mode (premium contrast) */
+[data-theme="light"] .hero,
+[data-theme="light"] .page-hero {
+  background: radial-gradient(120% 90% at 15% 0%, #241E52 0%, #0B0E1F 60%), #0B0E1F;
+  color: #fff;
+}
+[data-theme="light"] .hero h1,
+[data-theme="light"] .page-hero h1 { color: #fff; }
+[data-theme="light"] .hero__sub,
+[data-theme="light"] .page-hero__sub { color: rgba(237,239,247,0.75); }
+[data-theme="light"] .hero__content .eyebrow,
+[data-theme="light"] .page-hero .eyebrow { color: #7FEEFF; }
+
+/* 2) Light body: soft layered wash instead of flat lavender */
+[data-theme="light"] body {
+  background:
+    radial-gradient(90% 60% at 85% -10%, rgba(108,76,245,0.08) 0%, transparent 60%),
+    radial-gradient(70% 50% at -10% 30%, rgba(41,224,255,0.07) 0%, transparent 55%),
+    #F6F7FC;
+}
+[data-theme="light"] .section--alt { background: #EEF0FA; }
+[data-theme="light"] .section--surface { background: #FFFFFF; }
+
+/* 3) Cards: real elevation + accent hover lift */
+[data-theme="light"] .card,
+[data-theme="light"] .tech-card,
+[data-theme="light"] .form-card,
+[data-theme="light"] .login-card {
+  background: #FFFFFF;
+  border-color: rgba(16,20,44,0.10);
+  box-shadow: 0 1px 2px rgba(16,20,44,0.05), 0 10px 28px rgba(16,20,44,0.07);
+}
+[data-theme="light"] .card:hover,
+[data-theme="light"] .tech-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(108,76,245,0.45);
+  box-shadow: 0 2px 4px rgba(16,20,44,0.06), 0 20px 44px rgba(108,76,245,0.16);
+}
+
+/* 4) Icon tiles: stronger gradient + inner ring */
+[data-theme="light"] .card__icon,
+[data-theme="light"] .tech-card__icon {
+  background: linear-gradient(135deg, rgba(108,76,245,0.16), rgba(41,224,255,0.14));
+  box-shadow: inset 0 0 0 1px rgba(108,76,245,0.22);
+  color: #5636D9;
+}
+
+/* 5) Ink & accents: richer text, confident purple */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 { color: #10142A; }
+[data-theme="light"] p { color: #4A5170; }
+[data-theme="light"] .eyebrow,
+[data-theme="light"] .card__link,
+[data-theme="light"] .mega__viewall { color: #5636D9; }
+
+/* 6) Buttons: confident shadow in light mode */
+[data-theme="light"] .btn--primary { box-shadow: 0 8px 22px rgba(86,54,217,0.35); }
+[data-theme="light"] .btn--primary:hover { box-shadow: 0 12px 30px rgba(86,54,217,0.45); }
+[data-theme="light"] .btn--secondary,
+[data-theme="light"] .btn--ghost { background: #FFFFFF; border-color: rgba(16,20,44,0.16); color: #10142A; }
+
+/* 7) Navbar: crisp glass + hairline shadow */
+[data-theme="light"] .nav.is-scrolled {
+  background: rgba(255,255,255,0.86);
+  border-bottom-color: rgba(16,20,44,0.08);
+  box-shadow: 0 6px 22px rgba(16,20,44,0.07);
+}
+
+/* 8) Badges & chips: visible tint */
+[data-theme="light"] .badge { background: rgba(108,76,245,0.10); color: #5636D9; border-color: rgba(108,76,245,0.30); }
+[data-theme="light"] .tag-chip { background: #EEF0FA; border-color: rgba(16,20,44,0.10); color: #4A5170; }
+
+/* 9) Footer stays deep navy in light mode */
+[data-theme="light"] .footer { background: #0B0E1F; }
